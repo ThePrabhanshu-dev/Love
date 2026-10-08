@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>For You</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Dancing+Script:wght@500;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+<div id="floating-hearts"></div>
+
+<button id="music-toggle" class="music-btn" aria-label="Play music">
+  <svg id="icon-play" viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+  <svg id="icon-pause" viewBox="0 0 24 24" width="20" height="20" style="display:none"><path fill="currentColor" d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+</button>
+<button id="mute-toggle" class="music-btn mute-btn" aria-label="Mute">
+  <svg id="icon-unmuted" viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M3 10v4h4l5 5V5L7 10H3zm13.5 2a4.5 4.5 0 00-2.5-4.03v8.05A4.49 4.49 0 0016.5 12z"/></svg>
+  <svg id="icon-muted" viewBox="0 0 24 24" width="18" height="18" style="display:none"><path fill="currentColor" d="M16.5 12A4.5 4.5 0 0014 7.97v2.21l2.45 2.45c.03-.2.05-.42.05-.63zM19 12c0 .94-.2 1.82-.54 2.64l1.51 1.51A8.7 8.7 0 0021 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06a8.99 8.99 0 003.69-1.81L18.73 21 20 19.73l-9-9L4.27 3zM12 4l-1.88 1.88L12 7.76V4z"/></svg>
+</button>
+<audio id="bg-audio" loop preload="auto"></audio>
+
+<main id="app">
+
+  <section class="screen" id="screen-landing">
+    <div class="landing-glow"></div>
+    <div class="landing-content">
+      <p class="eyebrow-line" id="landing-kicker"></p>
+      <h1 class="landing-title" id="landing-title"></h1>
+      <p class="landing-subtitle" id="landing-subtitle"></p>
+      <button class="open-btn" id="open-btn">
+        <span id="open-btn-label"></span>
+      </button>
+    </div>
+  </section>
+
+  <section class="screen" id="screen-message">
+    <div class="hearts-orbit" aria-hidden="true">
+      <span>❤</span><span>❤</span><span>❤</span><span>❤</span><span>❤</span><span>❤</span>
+    </div>
+    <div class="message-card">
+      <p class="message-text" id="message-text"></p>
+    </div>
+  </section>
+
+  <section class="screen wide" id="screen-gallery">
+    <h2 class="section-title" id="gallery-title"></h2>
+    <div class="gallery-grid" id="gallery-grid"></div>
+  </section>
+
+  <section class="screen wide" id="screen-timeline">
+    <h2 class="section-title" id="timeline-title"></h2>
+    <div class="timeline" id="timeline-list"></div>
+  </section>
+
+  <section class="screen wide" id="screen-reasons">
+    <h2 class="section-title" id="reasons-title"></h2>
+    <div class="reasons-grid" id="reasons-grid"></div>
+  </section>
+
+  <section class="screen" id="screen-question">
+    <h2 class="question-text" id="question-text"></h2>
+    <div class="question-buttons">
+      <button class="q-btn q-yes" id="btn-yes"></button>
+      <button class="q-btn q-no" id="btn-no"></button>
+    </div>
+    <p class="question-response" id="question-response"></p>
+  </section>
+
+  <section class="screen" id="screen-final">
+    <div class="final-intro" id="final-intro"></div>
+    <h2 class="final-love" id="final-love"></h2>
+    <p class="final-sub" id="final-sub"></p>
+    <p class="final-ask" id="final-ask"></p>
+    <div class="final-heart" id="final-heart" aria-hidden="true">
+      <svg viewBox="0 0 32 29" width="72" height="65">
+        <path fill="currentColor" d="M16 28.6C7 22 0 15.7 0 9.3 0 4.2 4 0 9 0c2.9 0 5.5 1.4 7 3.6C17.5 1.4 20.1 0 23 0c5 0 9 4.2 9 9.3 0 6.4-7 12.7-16 19.3z"/>
+      </svg>
+    </div>
+  </section>
+
+  <div class="scroll-cue" id="scroll-cue" aria-hidden="true"><span></span></div>
+
+</main>
+
+<div id="confetti-layer"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
